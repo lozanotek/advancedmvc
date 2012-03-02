@@ -18,7 +18,6 @@ namespace InferredPoco
             // Supply our own controller factory to avoid inheritence overriding of
             // GetActionInvoker() for ControllerBase
             ControllerBuilder.Current.SetControllerFactory(new InferredControllerFactory());
-
             RegisterRoutes(RouteTable.Routes);
         }
     }

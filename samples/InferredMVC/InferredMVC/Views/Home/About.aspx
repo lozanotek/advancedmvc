@@ -5,8 +5,5 @@
 </asp:Content>
 
 <asp:Content ID="aboutContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Inferred Action</h2>
-    <p>
-        Put content here.
-    </p>
+    <h2>Inferred About Action!</h2>
 </asp:Content>

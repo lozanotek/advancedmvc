@@ -3,14 +3,7 @@
     using System.Web.Mvc;
 
     public class ViewProviderFilter : IResultFilter
-    {
-        public string ActionName { get; private set; }
-
-        public ViewProviderFilter(string actionName)
-        {
-            ActionName = actionName;
-        }
-
+    {        
         public ViewProviderCollection Providers
         {
             get { return ViewProviders.Providers; }
@@ -18,6 +11,8 @@
 
         public void OnResultExecuting(ResultExecutingContext filterContext)
         {
+            var actionName = filterContext.RouteData.Values["action"] as string;
+
             var viewResult = filterContext.Result as ViewResult;
             if (viewResult == null) return;
 
@@ -27,7 +22,7 @@
 
             // Get the name of the view, if nothing is specified, we take the name of the action
             // since this is the same as the value of return View();
-            var viewName = (string.IsNullOrEmpty(viewResult.ViewName)) ? ActionName : viewResult.ViewName;
+            var viewName = (string.IsNullOrEmpty(viewResult.ViewName)) ? actionName : viewResult.ViewName;
 
             // Ask the collection to get the correct view path from the specified IViewProvider
             var viewPath = provider.GetViewPath(filterContext, viewResult) ?? string.Empty;

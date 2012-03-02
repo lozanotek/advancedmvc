@@ -7,6 +7,8 @@ using System.Security.Principal;
 
 namespace NerdDinner
 {
+    using NerdDinner.ViewProviders;
+
     public class MvcApplication : HttpApplication
     {
         public void RegisterRoutes(RouteCollection routes)
@@ -35,7 +37,6 @@ namespace NerdDinner
             routes.MapRoute(
                 "OpenIdDiscover",
                 "Auth/Discover");
-
         }
 
         public override void Init()
@@ -47,6 +48,9 @@ namespace NerdDinner
         void Application_Start()
         {
             RegisterRoutes(RouteTable.Routes);
+
+            // Add the new filter for View Providers
+            GlobalFilters.Filters.Add(new ViewProviderFilter());
         }
 
         void MvcApplication_PostAuthenticateRequest(object sender, EventArgs e)
