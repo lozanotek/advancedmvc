@@ -3,5 +3,6 @@
     public interface IMessageService
     {
         string GetWelcomeMessage();
+        string GetMainMessage();
     }
 }

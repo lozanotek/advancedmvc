@@ -1,16 +1,12 @@
-﻿namespace NerdDinner.ViewProviders
-{
+﻿namespace NerdDinner.ViewProviders {
     using System.Web.Mvc;
 
-    public class ViewProviderFilter : IResultFilter
-    {        
-        public ViewProviderCollection Providers
-        {
+    public class ViewProviderFilter : IResultFilter {
+        public ViewProviderCollection Providers {
             get { return ViewProviders.Providers; }
         }
 
-        public void OnResultExecuting(ResultExecutingContext filterContext)
-        {
+        public void OnResultExecuting(ResultExecutingContext filterContext) {
             var actionName = filterContext.RouteData.Values["action"] as string;
 
             var viewResult = filterContext.Result as ViewResult;
@@ -28,16 +24,14 @@
             var viewPath = provider.GetViewPath(filterContext, viewResult) ?? string.Empty;
 
             // If the IViewProvider doesn't return the correct pathing, we need to fix it.
-            if (!string.IsNullOrEmpty(viewPath) && !viewPath.EndsWith("/"))
-            {
+            if (!string.IsNullOrEmpty(viewPath) && !viewPath.EndsWith("/")) {
                 viewPath += "/";
             }
 
             viewResult.ViewName = viewPath + viewName;
         }
 
-        public void OnResultExecuted(ResultExecutedContext filterContext)
-        {
+        public void OnResultExecuted(ResultExecutedContext filterContext) {
         }
     }
 }
