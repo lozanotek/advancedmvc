@@ -65,6 +65,7 @@
     <Compile Include="Controllers\InferredActionDescriptor.cs" />
     <Compile Include="Controllers\InferredActionInvoker.cs" />
     <Compile Include="Controllers\InferredController.cs" />
+    <Compile Include="Controllers\InferredControllerFactory.cs" />
     <Compile Include="Controllers\InferredParameterDescriptor.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -121,7 +122,9 @@
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Home\Test.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
