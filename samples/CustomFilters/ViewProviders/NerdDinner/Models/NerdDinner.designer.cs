@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -103,6 +104,7 @@ namespace NerdDinner.Models
         private ObjectSet<RSVP> _RSVPs;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -122,11 +124,11 @@ namespace NerdDinner.Models
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -169,6 +171,7 @@ namespace NerdDinner.Models
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -439,6 +442,7 @@ namespace NerdDinner.Models
         partial void OnHostedByIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -465,6 +469,7 @@ namespace NerdDinner.Models
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -493,6 +498,7 @@ namespace NerdDinner.Models
         }
 
         #endregion
+
         #region Primitive Properties
     
         /// <summary>
@@ -595,6 +601,7 @@ namespace NerdDinner.Models
         partial void OnAttendeeNameIdChanged();
 
         #endregion
+
     
         #region Navigation Properties
     
@@ -637,8 +644,10 @@ namespace NerdDinner.Models
         }
 
         #endregion
+
     }
 
     #endregion
+
     
 }
